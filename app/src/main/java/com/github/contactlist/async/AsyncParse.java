@@ -11,6 +11,7 @@ public class AsyncParse extends AsyncTask {
 
     @Override
     protected Object doInBackground(Object[] objects) {
+        // TODO parse json
         return null;
     }
 
