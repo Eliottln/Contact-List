@@ -46,8 +46,8 @@ public class ListAdapter extends BaseAdapter {
             layoutItem = (ConstraintLayout) view;
         }
 
-        TextView name = layoutItem.findViewById(R.id.tvName);
-        name.setText(contactArrayList.get(position).getName());
+        TextView fullName = layoutItem.findViewById(R.id.tvFullName);
+        fullName.setText(contactArrayList.get(position).getName());
 
         return layoutItem;
     }
