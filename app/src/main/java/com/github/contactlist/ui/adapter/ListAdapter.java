@@ -1,10 +1,12 @@
 package com.github.contactlist.ui.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.github.contactlist.R;
@@ -45,6 +47,9 @@ public class ListAdapter extends BaseAdapter {
         } else {
             layoutItem = (ConstraintLayout) view;
         }
+
+        ImageView photo = layoutItem.findViewById(R.id.ivAvatar);
+        photo.setImageBitmap(contactArrayList.get(position).getPhoto());
 
         TextView fullName = layoutItem.findViewById(R.id.tvFullName);
         fullName.setText(contactArrayList.get(position).getName());

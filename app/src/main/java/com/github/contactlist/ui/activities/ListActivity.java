@@ -20,7 +20,7 @@ public class ListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_list);
 
         Intent splash = getIntent();
-        this.contactArrayList = (ArrayList<Contact>) splash.getSerializableExtra("list");
+        this.contactArrayList = splash.getParcelableArrayListExtra("list");
         this.adapter = new ListAdapter(contactArrayList, this);
 
         ListView lvContact = findViewById(R.id.lvContact);

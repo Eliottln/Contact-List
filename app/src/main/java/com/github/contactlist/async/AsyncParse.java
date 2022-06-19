@@ -1,6 +1,9 @@
 package com.github.contactlist.async;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.github.contactlist.model.Contact;
 
@@ -28,7 +31,6 @@ public class AsyncParse extends AsyncTask {
 
         ArrayList<Contact> contactArrayList = (ArrayList<Contact>) objects[0];
         Context context = (Context) objects[1];
-        String path = "";
         String jsonString ="";
 
         // Open and read file
@@ -41,7 +43,6 @@ public class AsyncParse extends AsyncTask {
             jsonString = new String(buffer, StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
         }
 
         // Parse JSON
@@ -56,7 +57,17 @@ public class AsyncParse extends AsyncTask {
                 String surname = contactObj.optString("surname");
                 String fullName = contactObj.optString("fullName");
                 String email = contactObj.optString("email");
-                String photo = contactObj.optString("photo");
+                String urlPhoto = contactObj.optString("photo");
+
+                // Get the contact image with the URL
+                // Needs internet permission
+                Bitmap photo = null;
+                try {
+                    InputStream in = new java.net.URL(urlPhoto).openStream();
+                    photo = BitmapFactory.decodeStream(in);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 contactArrayList.add(new Contact(
                         age,
@@ -69,7 +80,6 @@ public class AsyncParse extends AsyncTask {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
 
 
         return "Finish";
