@@ -2,6 +2,7 @@ package com.github.contactlist.ui.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,11 +14,11 @@ import com.github.contactlist.R;
 import com.github.contactlist.model.Contact;
 import java.util.ArrayList;
 
-public class ListAdapter extends BaseAdapter {
+public class ContactListAdapter extends BaseAdapter {
     private final ArrayList<Contact> contactArrayList;
     private final Context context;
 
-    public ListAdapter(ArrayList<Contact> contactArrayList, Context context) {
+    public ContactListAdapter(ArrayList<Contact> contactArrayList, Context context) {
         this.contactArrayList = contactArrayList;
         this.context = context;
     }
@@ -49,7 +50,8 @@ public class ListAdapter extends BaseAdapter {
         }
 
         ImageView photo = layoutItem.findViewById(R.id.ivAvatar);
-        photo.setImageBitmap(contactArrayList.get(position).getPhoto());
+        byte[] byteArray = contactArrayList.get(position).getPhoto();
+        photo.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
 
         TextView fullName = layoutItem.findViewById(R.id.tvFullName);
         fullName.setText(contactArrayList.get(position).getName());

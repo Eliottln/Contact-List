@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileReader;
 import java.io.InputStream;
@@ -61,10 +62,13 @@ public class AsyncParse extends AsyncTask {
 
                 // Get the contact image with the URL
                 // Needs internet permission
-                Bitmap photo = null;
+                byte[] photo = null;
                 try {
                     InputStream in = new java.net.URL(urlPhoto).openStream();
-                    photo = BitmapFactory.decodeStream(in);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    Bitmap bmp = BitmapFactory.decodeStream(in);
+                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                    photo = stream.toByteArray();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
