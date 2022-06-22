@@ -2,12 +2,16 @@ package com.github.contactlist.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import com.github.contactlist.R;
 import com.github.contactlist.model.Contact;
 import com.github.contactlist.ui.adapter.ContactListAdapter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ListActivity extends AppCompatActivity {
 
