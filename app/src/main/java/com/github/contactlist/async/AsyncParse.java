@@ -1,20 +1,14 @@
 package com.github.contactlist.async;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.util.Log;
-
 import com.github.contactlist.model.Contact;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -56,7 +50,7 @@ public class AsyncParse extends AsyncTask {
                 int age = contactObj.optInt("age");
                 String name = contactObj.optString("name");
                 String surname = contactObj.optString("surname");
-                String fullName = contactObj.optString("fullName");
+                String fullName = contactObj.optString("fullname");
                 String email = contactObj.optString("email");
                 String urlPhoto = contactObj.optString("photo");
 

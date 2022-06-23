@@ -2,16 +2,12 @@ package com.github.contactlist.ui.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import com.github.contactlist.R;
 import com.github.contactlist.model.Contact;
 import com.github.contactlist.ui.adapter.ContactListAdapter;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class ListActivity extends AppCompatActivity {
 
@@ -23,6 +19,7 @@ public class ListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
 
+        // get the contact list
         Intent splash = getIntent();
         this.contactArrayList = (ArrayList<Contact>) splash.getSerializableExtra("list");
         this.adapter = new ContactListAdapter(contactArrayList, this);
@@ -30,8 +27,11 @@ public class ListActivity extends AppCompatActivity {
         ListView lvContact = findViewById(R.id.lvContact);
         lvContact.setAdapter(adapter);
 
+        // open details activity
         lvContact.setOnItemClickListener((adapterView, view, position, l) -> {
-            // TODO start new activity for details
+            Intent detailsIntent = new Intent(this, DetailsActivity.class);
+            detailsIntent.putExtra("contact", contactArrayList.get(position));
+            startActivity(detailsIntent);
         });
 
         adapter.notifyDataSetChanged();

@@ -2,9 +2,7 @@ package com.github.contactlist.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +10,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.github.contactlist.R;
 import com.github.contactlist.model.Contact;
-import com.github.contactlist.ui.activities.ListActivity;
 
 import java.util.ArrayList;
 
@@ -60,6 +56,7 @@ public class ContactListAdapter extends BaseAdapter {
         photo.setImageBitmap(BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length));
 
         ImageView mail = layoutItem.findViewById(R.id.ivMail);
+        // open mail app when tap the icon
         mail.setOnClickListener(function -> {
             Intent i = new Intent(Intent.ACTION_SEND);
             i.setType("message/rfc822");
@@ -71,8 +68,8 @@ public class ContactListAdapter extends BaseAdapter {
             }
         });
 
-        TextView fullName = layoutItem.findViewById(R.id.tvFullName);
-        fullName.setText(contactArrayList.get(position).getName());
+        TextView fullName = layoutItem.findViewById(R.id.tvListName);
+        fullName.setText(contactArrayList.get(position).getFullName());
 
         return layoutItem;
     }

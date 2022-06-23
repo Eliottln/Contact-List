@@ -1,9 +1,5 @@
 package com.github.contactlist.model;
 
-import android.graphics.Bitmap;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 public class Contact implements Serializable {
