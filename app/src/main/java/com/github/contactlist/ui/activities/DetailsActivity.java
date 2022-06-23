@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.github.contactlist.model.Contact;
 import com.github.contactlist.R;
 
