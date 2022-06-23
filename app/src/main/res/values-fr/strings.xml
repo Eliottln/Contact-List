@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mes contacts</string>
+    <string name="name">Prénom</string>
+    <string name="full_name">Nom complet</string>
+    <string name="surname">Nom</string>
+    <string name="age">Age</string>
+    <string name="email">Courriel</string>
+</resources>

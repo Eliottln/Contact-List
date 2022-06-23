@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">Contact List</string>
+    <string name="app_name">My contacts</string>
     <string name="name">Name</string>
-    <string name="mail_button">mail_button</string>
-    <string name="avatar">avatar</string>
+    <string name="mail_button" translatable="false">mail_button</string>
+    <string name="avatar" translatable="false">avatar</string>
+    <string name="full_name">Full name</string>
+    <string name="surname">Surname</string>
+    <string name="age">Age</string>
+    <string name="email">Email</string>
 </resources>
